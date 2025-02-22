@@ -8,7 +8,7 @@ import {viteStaticCopy} from 'vite-plugin-static-copy';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base:'./',
+  base:'/DX3906/',
   plugins: [
     vue(),
     vueJsx(),
