@@ -1,0 +1,41 @@
+# 文件名：.github/workflows/deploy.yml
+
+name: Deploy to GitHub Pages
+
+# 触发条件：推送代码到 gh-actions 分支
+on:
+  push:
+    branches:
+      - gh-actions
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 检出代码
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 设置 Node.js 环境
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # 根据你的项目需求选择合适的 Node.js 版本
+
+      # 安装依赖
+      - name: Install dependencies
+        run: npm install
+
+      # 执行构建
+      - name: Build project
+        run: npm run build
+
+      # 同步 dist 目录到 gh-pages 分支
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages  # 目标分支
+          folder: dist      # 构建后的文件夹路径
+          clean: true       # 清除 gh-pages 分支上的旧文件
+          token: ${{ secrets.GITHUB_TOKEN }}  # 使用 GitHub 提供的默认 token
