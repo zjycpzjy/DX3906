@@ -33,7 +33,7 @@ jobs:
       - name: Commit and push fixed files
         if: steps.prettier-check.outputs.needs-fix == 'true'
         run: |
-          git config --global user.email "zjiayingok@163.com"
+          git config --global user.email "github-actions@github.com"
           git config --global user.name "GitHub Actions"
           git add .
           git diff-index --quiet HEAD || git commit -m "Fix code format with Prettier"
