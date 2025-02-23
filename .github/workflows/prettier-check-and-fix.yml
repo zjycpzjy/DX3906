@@ -38,5 +38,5 @@ jobs:
           git config --global user.name "zjiayingok"
           git add .
           git commit -m "Fix code format with Prettier1"
-          git push https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }}.git
+          git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
         
