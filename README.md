@@ -2,7 +2,6 @@
 
 Representing Future Stars "dx3906"
 
-
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
@@ -62,4 +61,3 @@ npm run test:e2e
 ```sh
 npm run lint
 ```
-

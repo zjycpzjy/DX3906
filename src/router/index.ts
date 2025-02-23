@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory,createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
@@ -21,7 +21,7 @@ const router = createRouter({
       path: '/Buttons',
       name: 'buttons',
       component: () => import('../components/Buttons.vue'),
-    }
+    },
   ],
 })
 

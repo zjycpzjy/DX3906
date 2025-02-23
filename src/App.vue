@@ -5,7 +5,6 @@ import Menu from './components/menu.vue'
 
 <template>
   <Menu />
-  
 </template>
 
 <style scoped>
