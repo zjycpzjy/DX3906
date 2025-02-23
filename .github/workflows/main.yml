@@ -43,4 +43,4 @@ jobs:
           branch: gh-pages # 目标分支
           folder: dist # 构建后的文件夹路径
           clean: true # 清除 gh-pages 分支上的旧文件
-          token: ${{ secrets.GITHUB_TOKEN }} # 使用 GitHub 提供的默认 token
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }} # 使用 GitHub 提供的默认 token
