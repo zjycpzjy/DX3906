@@ -40,4 +40,4 @@ jobs:
           git config --global user.name "zjiayingok"
           git add .
           git diff-index --quiet HEAD || git commit -m "Fix code format with Prettier"
-          git push origin HEAD:${{ github.ref_name }}
+          git push https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }}
