@@ -106,7 +106,7 @@ const item = {
   address: 'No. 189, Grove St, Los Angeles',
 
 }
-const tableData = ref(Array.from({ length: 1000 }).fill(item))
+const tableData = ref(Array.from({ length: 100 }).fill(item))
 
 const isButtonVisible = ref(false);
 const isListVisible = ref(true);
