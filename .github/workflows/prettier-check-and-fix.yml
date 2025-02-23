@@ -36,5 +36,5 @@ jobs:
           git config --global user.email "zjiayingok@163.com"
           git config --global user.name "zjiayingok"
           git add .
-          git commit -m "Fix code format with Prettier"
+          git commit -m "Fix code format with Prettier1"
           git push https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }}
