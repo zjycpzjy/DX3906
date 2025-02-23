@@ -37,5 +37,5 @@ jobs:
           git config --global user.email "zjiayingok@163.com"
           git config --global user.name "zjiayingok"
           git add .
-          git diff-index --quiet HEAD || git commit -m "Fix code format with Prettier"
-          git push
+          git commit -m "Fix code format with Prettier"
+          git push origin HEAD:${{ github.ref_name }}
