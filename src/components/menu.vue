@@ -2,15 +2,15 @@
   <el-container class="layout-container-demo" style="height: 500px">
     <el-aside width="200px">
       <el-scrollbar>
-        <el-menu :default-openeds="['1', '3']">
+        <el-menu :default-openeds="['1', '3']" @select="handleMenuSelect">
           <el-sub-menu index="1">
             <template #title>
-              <el-icon><message /></el-icon>Navigator One
+              <el-icon><message /></el-icon>组件
             </template>
             <el-menu-item-group>
-              <template #title>Group 1</template>
-              <el-menu-item index="1-1">Option 1</el-menu-item>
-              <el-menu-item index="1-2">Option 2</el-menu-item>
+              <template #title>基础组件</template>
+              <el-menu-item index="1-1" >按钮</el-menu-item>
+              <el-menu-item index="1-2" >色彩</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group title="Group 2">
               <el-menu-item index="1-3">Option 3</el-menu-item>
@@ -79,7 +79,8 @@
 
       <el-main>
         <el-scrollbar>
-          <el-table :data="tableData">
+          <Buttons v-if="isButtonVisible"></Buttons>
+          <el-table :data="tableData" v-if="isListVisible">
             <el-table-column prop="date" label="Date" width="140" />
             <el-table-column prop="name" label="Name" width="120" />
             <el-table-column prop="age" label="Age" width="120" />
@@ -95,7 +96,8 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { Menu as IconMenu, Message, Setting } from '@element-plus/icons-vue'
-
+import { ElMenuItem } from 'element-plus';
+import Buttons from './Buttons.vue' 
 const item = {
   date: '2016-05-01',
   name: 'Tom',
@@ -105,6 +107,23 @@ const item = {
 
 }
 const tableData = ref(Array.from({ length: 1000 }).fill(item))
+
+const isButtonVisible = ref(false);
+const isListVisible = ref(true);
+const handleMenuSelect = (index: string,indexPath: string[],
+  item: InstanceType<typeof ElMenuItem>) => {
+      console.log("点击的菜单项索引:", index);
+      console.log("完整的路径索引:", indexPath);
+      console.log("菜单项对象:", item);
+      if(index === '1-1'){
+        isButtonVisible.value = true;
+        isListVisible.value = false;
+      }else if(index === '1-2'){
+        isButtonVisible.value = false;
+        isListVisible.value = true;
+      }
+      // 根据索引或路径执行相应操作
+    }
 </script>
 
 <style scoped>
