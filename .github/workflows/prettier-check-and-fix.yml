@@ -5,13 +5,11 @@ on:
     branches:
       - gh-actions  # 只在 gh-actions 分支上触发
 
-permissions:
-  contents: write
-
 jobs:
   prettier:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
