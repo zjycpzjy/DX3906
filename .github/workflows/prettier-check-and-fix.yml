@@ -1,0 +1,40 @@
+name: Prettier Check and Fix
+
+on:
+  push:
+    branches:
+      - gh-actions  # 只在 gh-actions 分支上触发
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'  # 使用 Node.js 20，根据需要调整版本
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Check code format with Prettier
+        id: prettier-check
+        run: |
+          npx prettier --check . || echo "::set-output name=needs-fix::true"
+
+      - name: Fix code format with Prettier
+        if: steps.prettier-check.outputs.needs-fix == 'true'
+        run: npx prettier --write .
+
+      - name: Commit and push fixed files
+        if: steps.prettier-check.outputs.needs-fix == 'true'
+        run: |
+          git config --global user.email "zjiayingok@163.com"
+          git config --global user.name "GitHub Actions"
+          git add .
+          git diff-index --quiet HEAD || git commit -m "Fix code format with Prettier"
+          git push
