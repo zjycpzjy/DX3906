@@ -37,4 +37,4 @@ jobs:
           git config --global user.name "GitHub Actions"
           git add .
           git diff-index --quiet HEAD || git commit -m "Fix code format with Prettier"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/zjycpzjy/DX3906.git
+          git push https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/zjycpzjy/DX3906.git
