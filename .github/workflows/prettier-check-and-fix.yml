@@ -17,7 +17,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+        with:
+          token: ${{ secrets.DX_ACCESS_TOKEN }}
+          
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -45,4 +47,5 @@ jobs:
           git push
         env:
           # 使用 GitHub 提供的工作流令牌来推送更改
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DX_ACCESS_TOKEN }}
+        
