@@ -4,7 +4,10 @@ on:
   push:
     branches:
       - gh-actions  # 只在 gh-actions 分支上触发
-
+# 权限设置
+permissions:
+  contents: write  # 允许对仓库内容进行写操作
+  actions: write
 jobs:
   prettier:
     runs-on: ubuntu-latest
