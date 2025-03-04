@@ -19,6 +19,7 @@ jobs:
     permissions:
       contents: write
       actions: write
+    if: github.event.workflow_run.conclusion == 'success'  # 确保触发条件是成功运行
     steps:
       # 检出代码
       - name: Checkout code
