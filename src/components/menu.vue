@@ -13,7 +13,7 @@
               <el-menu-item index="1-2">色彩</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group title="Group 2">
-              <el-menu-item index="1-3">Option 3</el-menu-item>
+              <el-menu-item index="1-3">测试</el-menu-item>
             </el-menu-item-group>
             <el-sub-menu index="1-4">
               <template #title>Option4</template>
