@@ -5,16 +5,16 @@ name: Deploy to GitHub Pages
 # 触发条件：推送代码到 gh-actions 分支
 on:
   workflow_run:
-    workflows: 
-      - "prettier-check-and-fix.yml"  # 只有当 "prettier-check-and-fix" 工作流成功完成后才会触发
+    workflows:
+      - 'prettier-check-and-fix.yml' # 只有当 "prettier-check-and-fix" 工作流成功完成后才会触发
     types:
       - completed
 #  push:
 #    branches:
 #      - gh-actions
 permissions:
-      contents: write
-      actions: write
+  contents: write
+  actions: write
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
