@@ -45,4 +45,4 @@ jobs:
           git push
         env:
           # 使用 GitHub 提供的工作流令牌来推送更改
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
