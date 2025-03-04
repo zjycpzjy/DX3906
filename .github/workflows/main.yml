@@ -4,11 +4,11 @@ name: Deploy to GitHub Pages
 
 # 触发条件：推送代码到 gh-actions 分支
 on:
-#  workflow_run:
-#    workflows: 
-#      - "prettier-check-and-fix.yml"  # 只有当 "prettier-check-and-fix" 工作流成功完成后才会触发
-#    types:
-#      - completed
+  #  workflow_run:
+  #    workflows:
+  #      - "prettier-check-and-fix.yml"  # 只有当 "prettier-check-and-fix" 工作流成功完成后才会触发
+  #    types:
+  #      - completed
   push:
     branches:
       - gh-actions
@@ -19,7 +19,7 @@ jobs:
     permissions:
       contents: write
       actions: write
-    if: github.event.workflow_run.conclusion == 'success'  # 确保触发条件是成功运行
+    if: github.event.workflow_run.conclusion == 'success' # 确保触发条件是成功运行
     steps:
       # 检出代码
       - name: Checkout code
